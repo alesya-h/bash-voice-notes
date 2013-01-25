@@ -45,7 +45,7 @@ function try_transcode {
     else
         OUT="$(text_file "$1")"
     fi
-    sox "$1" -q --rate 16000 -t flac - 2>/dev/null| curl --data-binary @- --header 'Content-type: audio/x-flac; rate=16000' 'https://www.google.com/speech-api/v1/recognize?lang=ru-RU&client=chromium' 2>/dev/null | jshon -e hypotheses -e 1 -e utterance -u > "$OUT"
+    sox "$1" -q --rate 16000 -t flac - 2>/dev/null| curl --data-binary @- --header 'Content-type: audio/x-flac; rate=16000' 'https://www.google.com/speech-api/v1/recognize?lang=ru-RU&client=chromium' 2>/dev/null | jshon -e hypotheses -e 0 -e utterance -u > "$OUT"
 }
 
 function notecat {
