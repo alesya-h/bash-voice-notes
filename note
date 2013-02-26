@@ -6,7 +6,8 @@ NOTIFY_TRANSCODED="1"
 PREVIEW_LEN=20
 
 if [ ! "$1" ]; then
-    echo "  usage: $(basename "$0") <command> [args]
+    cat <<EOF
+usage: $(basename "$0") <command> [args]
 Supported commands (N defaults to 1 (last record)):
     rec            - Starts note recording. After recording spawns transcoding process.
     list           - Lists notes and up 20 characters of transcoding preview.
@@ -14,7 +15,8 @@ Supported commands (N defaults to 1 (last record)):
     cat    [N]     - Displays transcoding of record N.
     delete [N|all] - Deletes record N.
     key-rec        - Starts and stops recording. Bind it to some hotkey.
-    key-play       - Starts and stops playing. Bind it to some other key."
+    key-play       - Starts and stops playing. Bind it to some other key.
+EOF
     exit 1
 fi
 
@@ -184,5 +186,3 @@ case "$CMD" in
         exit 1
         ;;
 esac
-exit 0
-
